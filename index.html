@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote generator</title>
+    <link rel="stylesheet" href="input.css">
+    <link rel="stylesheet" href="output.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body >
+    <nav class="w-full bg-gray-50 font-bold h-12">
+        <div class="md:hidden h-full p-2 overflow-auto flex items-center justify-between w-full " >
+            <button aria-label="menubar"id="menubar" class="transition-colors cursor-pointer hover:bg-green-600 hover:text-white px-1 rounded-md text-xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <button aria-label="cutbar"id="cutbar" class="hidden transition-colors cursor-pointer hover:bg-green-600 hover:text-white px-1 rounded-md text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <p class="text-xl font-bold">Fresh<span class="text-green-600">plate</span></p>
+            <button aria-label="notification" class="transition-colors cursor-pointer hover:bg-green-600 hover:text-white  px-1 text-xl rounded-md">
+                <i class="fa-regular fa-bell"></i>
+            </button>
+        </div>
+
+        <div class="sidebar lg:w-1/6 md:flex md:fixed md:top-0 md:w-1/4 md:gap-3 md:p-2   md:bg-white hidden flex-col items-center justify-start  gap-2.5 fixed top-12 left-0 w-64 min-h-full bg-red-50 h-screen  backdrop-blur-2xl">
+            <div class="md:flex hidden gap-2 items-center w-full p-2">
+                <i class="fa-solid fa-leaf text-green-500 text-2xl"></i>
+                <div class="flex flex-col items-center gap-1/7">
+                    <p class="hidden md:flex text-2xl text-black ">Freshplate</p>
+                    <p class="text-[9px] text-gray-600">Cook smart waste less</p>
+                </div>
+            </div>
+            <a class="md:rounded-md w-full text-gray-800 flex gap-1 items-center justify-center transition-colors text-center p-2 hover:bg-gray-300"href="#">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+            <a class="md:rounded-md w-full text-gray-800 flex gap-1 items-center justify-center transition-colors text-center p-2 hover:bg-gray-300" href="#">
+                <i class="fa-solid fa-box-open"></i>
+                fridge items
+            </a>
+            <a class="md:rounded-md w-full text-gray-800 flex gap-1 items-center justify-center transition-colors text-center p-2 hover:bg-gray-300"href="#">
+                <i class="fa-solid fa-circle-plus"></i>
+                Add items
+            </a>
+            <a class="md:rounded-md w-full text-gray-800 flex gap-1 items-center justify-center transition-colors text-center p-2 hover:bg-gray-300"href="#">
+                <i class="fa-solid fa-utensils"></i>
+                Find Recipe
+            </a>
+            <a class="md:rounded-md w-full text-gray-800 flex gap-1 items-center justify-center transition-colors text-center p-2 hover:bg-gray-300"href="#">
+                <i class="fa-solid fa-plate-wheat"></i>
+                Meal planner
+            </a>
+            <a class="md:rounded-md w-full text-gray-800 flex gap-1 items-center justify-center transition-colors text-center p-2 hover:bg-gray-300"href="#">
+                <i class="fa-solid fa-gear"></i>
+                settings
+            </a>
+            <div class="flex absolute gap-2 px-10 bottom-4 text-[15px]  flex-col text-gray-800">
+                <p class="font-bold">Every bite counts</p>
+                <p class="text-gray-700 text-[9px]">You have saved 12 items from going to waste</p>
+                <img src="bowl.jpg" class="mt-1 bg-cover mr-0  w-12 max-h-12 rounded-xl"alt="">
+            </div>
+        </div>
+    </nav>
+    
+</body>
+<script src="script.js"></script>
+</html>
