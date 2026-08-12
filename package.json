@@ -1,16 +1,26 @@
 {
-  "name": "quat-generator",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "name": "fresh-plate",
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/input.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yash-solo/fresh-plate.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
-    "tailwindcss": "^4.3.3"
-  }
+  "bugs": {
+    "url": "https://github.com/Yash-solo/fresh-plate/issues"
+  },
+  "homepage": "https://github.com/Yash-solo/fresh-plate#readme"
 }
