@@ -16,3 +16,4 @@ cross.addEventListener('click',()=>{
     cross.style.display = "none";
     burger.style.display = "flex";
 })
+
