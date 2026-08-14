@@ -3,6 +3,8 @@ const cross = document.querySelector('#cutbar');
 const sidebar = document.querySelector('.sidebar');
 const midSection = document.querySelector('.midsection');
 const addItems = document.querySelector('.additem');
+const frigeItems = document.querySelector('#frigeItem');
+
 burger.addEventListener('click',()=>{
     sidebar.classList.remove('left-0');
     sidebar.classList.toggle('-left-full');
@@ -49,4 +51,10 @@ addItems.addEventListener('click',()=>{
         localStorage.setItem('frige',JSON.stringify(items));
         alert("Your item added succesfully");
     })
+})
+
+frigeItems.addEventListener('click',()=>{
+    midSection.innerHTML = `
+    `;
+    midSection.style.backgroundColor = "rgba(242, 105, 158, 0.929)";
 })
