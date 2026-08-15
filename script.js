@@ -138,7 +138,7 @@ frigeItems.addEventListener('click',()=>{
     const findRecipeBtn = document.querySelector('.findRecipe');
     findRecipeBtn.addEventListener('click',()=>{
         openRecipe();
-        console.log(`Give me 4 recipes which can I make using this items ${promptList}. always remember you have to suggest a recipe which anyone can make using only this 3 items.`);
+        document.querySelector('.findRecipepagetext').innerHTML=`Give me 4 recipes which can I make using this items ${promptList}. always remember you have to suggest a recipe which anyone can make using only this 3 items.`;
     });
     
     //delete a perticular item via update
@@ -166,5 +166,5 @@ frigeItems.addEventListener('click',()=>{
 findRecipeSec.addEventListener('click',openRecipe=()=>{
     midSection.style.backgroundColor = "rgb(173, 154, 139)";
     midSection.innerHTML = `
-    <h1 class="font-bold text-2xl">Here I will show recipes</h1>`
+    <h1 class="findRecipepagetext font-bold text-2xl">Here I will show recipes</h1>`
 })
