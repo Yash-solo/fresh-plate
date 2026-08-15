@@ -80,38 +80,43 @@ frigeItems.addEventListener('click',()=>{
     midSection.style.backgroundColor = "rgba(4, 1, 43)";
     
     //take all items and store them from the localstorage
-    let items = JSON.parse(localStorage.getItem('frige'))||[];
-        
-    //create
-    for(let food of items){
-        let frigeNewItem = document.createElement('ul');
-        frigeNewItem.classList.add("flex","flex-row","p-2","bg-white","rounded-[10px]","text-2xl","justify-around","items-center");
+    function updateItems(){
+        let items = JSON.parse(localStorage.getItem('frige'))||[];
+            
+        //create
+        for(let food of items){
+            let frigeNewItem = document.createElement('ul');
+            frigeNewItem.classList.add("flex","flex-row","p-2","bg-white","rounded-[10px]","text-2xl","justify-around","items-center");
 
-        if(food.ex<=3){
-            frigeNewItem.innerHTML = `
-            <input type="checkbox"value="${food.itm}" id="check"class="appearance-none h-[22px] w-[22px] border border-black rounded-[2px] inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-[20px] checked:after:text-white checked:after:font-bold">
-            <li>${food.itm}</li>
-            <p class="text-[15px] rounded-2xl bg-red-300 text-center px-2  text-red-500">${food.ex} days</p>
-            <button class="w-5">:</button>`
-                
-            document.querySelector('.upperCont').appendChild(frigeNewItem);
-        }else if(food.ex<=5){
-            frigeNewItem.innerHTML = `
-            <input type="checkbox" value="${food.itm}" id="check"class="appearance-none h-[22px] w-[22px] border border-black rounded-[2px] inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-[20px] checked:after:text-white checked:after:font-bold">
-            <li>${food.itm}</li>
-            <p class="text-[15px] rounded-2xl bg-amber-200 text-center px-2  text-amber-500">${food.ex} days</p>
-            <button class="w-5">:</button>`
-            document.querySelector('.MidCont').appendChild(frigeNewItem);
-        }else{
-            frigeNewItem.innerHTML = `
-            <input type="checkbox" value="${food.itm}"id="check" class="appearance-none h-5.5 w-5.5 border border-black rounded-xs inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-white checked:after:text-[20px] checked:after:font-bold ">
-            <li>${food.itm}</li>
-            <p class="text-[15px] rounded-2xl bg-green-200 text-center px-2  text-green-600">${food.ex} days</p>
-            <button class="w-5">:</button>`
-            document.querySelector('.LowerCont').appendChild(frigeNewItem);
+            if(food.ex<=3){
+                frigeNewItem.innerHTML = `
+                <input type="checkbox"value="${food.itm}" id="check"class="appearance-none h-[22px] w-[22px] border border-black rounded-[2px] inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-[20px] checked:after:text-white checked:after:font-bold">
+                <li>${food.itm}</li>
+                <p class="text-[15px] rounded-2xl bg-red-300 text-center px-2  text-red-500">${food.ex} days</p>
+                <button value="${food.itm}" class="deleteitm bg-amber-200 w-6 rounded-xs cursor-pointer">:</button>`
+                    
+                document.querySelector('.upperCont').appendChild(frigeNewItem);
+            }else if(food.ex<=5){
+                frigeNewItem.innerHTML = `
+                <input type="checkbox" value="${food.itm}" id="check"class="appearance-none h-[22px] w-[22px] border border-black rounded-[2px] inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-[20px] checked:after:text-white checked:after:font-bold">
+                <li>${food.itm}</li>
+                <p class="text-[15px] rounded-2xl bg-amber-200 text-center px-2  text-amber-500">${food.ex} days</p>
+                <button value="${food.itm}" class="deleteitm bg-amber-200 w-6 cursor-pointer rounded-xs">:</button>`
+                document.querySelector('.MidCont').appendChild(frigeNewItem);
+            }else{
+                frigeNewItem.innerHTML = `
+                <input type="checkbox" value="${food.itm}"id="check" class="appearance-none h-5.5 w-5.5 border border-black rounded-xs inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-white checked:after:text-[20px] checked:after:font-bold ">
+                <li>${food.itm}</li>
+                <p class="text-[15px] rounded-2xl bg-green-200 text-center px-2  text-green-600">${food.ex} days</p>
+                <button value="${food.itm}" class="deleteitm bg-amber-200 w-6 cursor-pointer rounded-xs">:</button>`
+                document.querySelector('.LowerCont').appendChild(frigeNewItem);
+            }
+        
         }
-    
     }
+    updateItems();
+
+    //checkbox handling and create array for prompt
     let allCheckBox = document.querySelectorAll('#check');
     let promptList = [];
     
@@ -128,14 +133,34 @@ frigeItems.addEventListener('click',()=>{
         });
         
     });
-
+    
+    //make find recipe prompt and jump to find recipe section 
     const findRecipeBtn = document.querySelector('.findRecipe');
     findRecipeBtn.addEventListener('click',()=>{
         openRecipe();
         console.log(`Give me 4 recipes which can I make using this items ${promptList}. always remember you have to suggest a recipe which anyone can make using only this 3 items.`);
     });
     
+    //delete a perticular item via update
+    const deleteItem = document.querySelectorAll('.deleteitm');
+    deleteItem.forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            //update local storage using array filter
+            let allItemsList = JSON.parse(localStorage.getItem('frige'));
+            let filteredList = allItemsList.filter(ele=>{
+                return ele.itm !== btn.value;
+            });
+            console.log(allItemsList);
+            console.log(filteredList);
+            
 
+            localStorage.setItem('frige',JSON.stringify(filteredList));
+            document.querySelector('.upperCont').innerHTML = ``;
+            document.querySelector('.MidCont').innerHTML = ``;
+            document.querySelector('.LowerCont').innerHTML = ``;
+            updateItems();
+        });
+    });
 });
 
 findRecipeSec.addEventListener('click',openRecipe=()=>{
