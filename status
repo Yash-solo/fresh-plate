@@ -1,0 +1,18 @@
+[33m06ace68[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge branch 'checkBoxControl'
+[33mc578d61[m initial commit
+[33ma75b531[m checkbox and findrecipe page adjust with creating a list functionality
+[33m5d2df17[m Show frige's Added Items
+[33me93d92c[m Add frigeUI
+[33m4377017[m dist/output.css file modify automatically
+[33m5a7e79c[m add pointer cursor
+[33m2b51434[m add frige item background
+[33mbac7e8d[m update output.css
+[33md93b53a[m Make add item section
+[33md3253de[m Add style
+[33m15962e4[m Adjust sidebar
+[33ma499543[m increase height of navbar
+[33m4140e07[m Make scrollable sidebar
+[33mb57466f[m Make ui better
+[33m091ebf3[m make ui better
+[33m920d07c[m add responsive navbar
+[33mffe42c9[m Initial commit
