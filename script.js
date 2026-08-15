@@ -4,6 +4,7 @@ const sidebar = document.querySelector('.sidebar');
 const midSection = document.querySelector('.midsection');
 const addItems = document.querySelector('.additem');
 const frigeItems = document.querySelector('#frigeItem');
+const findRecipeSec = document.querySelector('.findRecipes');
 
 burger.addEventListener('click',()=>{
     sidebar.classList.remove('left-0');
@@ -50,11 +51,11 @@ addItems.addEventListener('click',()=>{
 
         localStorage.setItem('frige',JSON.stringify(items));
         alert("Your item added succesfully");
-    })
-})
+    });
+});
 
 frigeItems.addEventListener('click',()=>{
-    
+
     midSection.innerHTML = `
     <h1 class="font-bold md:w-1/2 w-9/10 text-2xl text-center bg-white p-3 rounded-2xl">Your frige</h1>
     <div class="frigeContainer md:w-1/2 flex flex-col gap-3 p-3 bg-white h-auto w-9/10 rounded-2xl border border-gray-500">
@@ -68,45 +69,77 @@ frigeItems.addEventListener('click',()=>{
             </div>
         </div>
         <div class="thirdExp p-3 min-h-35 overflow-y-auto max-h-35 w-full rounded-2xl shadow shadow-gray-400 overflow-hidden bg-center object-cover"style="background-image:url('./imagesfrige/lower.png')">
-            <div class="LowerCont flex flex-col gap-2  text-2xl">
-            </div>
+        <div class="LowerCont flex flex-col gap-2  text-2xl">
+        </div>
         </div>
     </div>
-    <button class="p-3 hover:bg-pink-800 text-[20px] cursor-pointer font-bold fixed md:fixed md:bottom-3 md:right-3 bottom-1 right-1 bg-pink-900 border text-white border-white rounded-4xl">Find recipe</button>
-
-    `;
+    <button class="findRecipe p-3 hover:bg-pink-800 text-[20px] cursor-pointer font-bold fixed md:fixed md:bottom-3 md:right-3 bottom-1 right-1 bg-pink-900 border text-white border-white rounded-4xl">Find recipe</button>
+        
+        `;
+    //screen background
     midSection.style.backgroundColor = "rgba(4, 1, 43)";
-
-    let items = JSON.parse(localStorage.getItem('frige'))||[];
     
+    //take all items and store them from the localstorage
+    let items = JSON.parse(localStorage.getItem('frige'))||[];
+        
+    //create
     for(let food of items){
         let frigeNewItem = document.createElement('ul');
         frigeNewItem.classList.add("flex","flex-row","p-2","bg-white","rounded-[10px]","text-2xl","justify-around","items-center");
 
         if(food.ex<=3){
             frigeNewItem.innerHTML = `
-            <input type="checkbox" id="check">
+            <input type="checkbox"value="${food.itm}" id="check"class="appearance-none h-[22px] w-[22px] border border-black rounded-[2px] inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-[20px] checked:after:text-white checked:after:font-bold">
             <li>${food.itm}</li>
             <p class="text-[15px] rounded-2xl bg-red-300 text-center px-2  text-red-500">${food.ex} days</p>
             <button class="w-5">:</button>`
-            
+                
             document.querySelector('.upperCont').appendChild(frigeNewItem);
         }else if(food.ex<=5){
             frigeNewItem.innerHTML = `
-            <input type="checkbox" id="check">
+            <input type="checkbox" value="${food.itm}" id="check"class="appearance-none h-[22px] w-[22px] border border-black rounded-[2px] inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-[20px] checked:after:text-white checked:after:font-bold">
             <li>${food.itm}</li>
             <p class="text-[15px] rounded-2xl bg-amber-200 text-center px-2  text-amber-500">${food.ex} days</p>
             <button class="w-5">:</button>`
             document.querySelector('.MidCont').appendChild(frigeNewItem);
         }else{
             frigeNewItem.innerHTML = `
-            <input type="checkbox" id="check">
+            <input type="checkbox" value="${food.itm}"id="check" class="appearance-none h-5.5 w-5.5 border border-black rounded-xs inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-white checked:after:text-[20px] checked:after:font-bold ">
             <li>${food.itm}</li>
             <p class="text-[15px] rounded-2xl bg-green-200 text-center px-2  text-green-600">${food.ex} days</p>
             <button class="w-5">:</button>`
             document.querySelector('.LowerCont').appendChild(frigeNewItem);
         }
-        
+    
     }
+    let allCheckBox = document.querySelectorAll('#check');
+    let promptList = [];
+    
+    allCheckBox.forEach(checkboxes=>{
+        checkboxes.addEventListener('change',()=>{
+            if(checkboxes.checked){
+                if(!promptList.includes(checkboxes.value)){
+                    promptList.push(checkboxes.value);
+                }
+            }else{
+                const delInx = promptList.indexOf(checkboxes.value);
+                promptList.splice(delInx,1);
+            }
+        });
+        
+    });
 
+    const findRecipeBtn = document.querySelector('.findRecipe');
+    findRecipeBtn.addEventListener('click',()=>{
+        openRecipe();
+        console.log(`Give me 4 recipes which can I make using this items ${promptList}. always remember you have to suggest a recipe which anyone can make using only this 3 items.`);
+    });
+    
+
+});
+
+findRecipeSec.addEventListener('click',openRecipe=()=>{
+    midSection.style.backgroundColor = "rgb(173, 154, 139)";
+    midSection.innerHTML = `
+    <h1 class="font-bold text-2xl">Here I will show recipes</h1>`
 })
