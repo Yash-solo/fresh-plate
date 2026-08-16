@@ -113,6 +113,29 @@ frigeItems.addEventListener('click',()=>{
             }
         
         }
+
+        //delete a perticular item via update
+        const deleteItem = document.querySelectorAll('.deleteitm');
+        
+        deleteItem.forEach(btn=>{
+            btn.addEventListener('click',()=>{
+                //update local storage using array filter
+                let allItemsList = JSON.parse(localStorage.getItem('frige'));
+                let filteredList = allItemsList.filter(ele=>{
+                    return ele.itm !== btn.value;
+                });
+                console.log(allItemsList);
+                console.log(filteredList);
+                
+                //update via set 
+                localStorage.setItem('frige',JSON.stringify(filteredList));
+
+                document.querySelector('.upperCont').innerHTML = ``;
+                document.querySelector('.MidCont').innerHTML = ``;
+                document.querySelector('.LowerCont').innerHTML = ``;
+                updateItems();
+            });
+        });
     }
     updateItems();
 
@@ -141,26 +164,7 @@ frigeItems.addEventListener('click',()=>{
         document.querySelector('.findRecipepagetext').innerHTML=`Give me 4 recipes which can I make using this items ${promptList}. always remember you have to suggest a recipe which anyone can make using only this 3 items.`;
     });
     
-    //delete a perticular item via update
-    const deleteItem = document.querySelectorAll('.deleteitm');
-    deleteItem.forEach(btn=>{
-        btn.addEventListener('click',()=>{
-            //update local storage using array filter
-            let allItemsList = JSON.parse(localStorage.getItem('frige'));
-            let filteredList = allItemsList.filter(ele=>{
-                return ele.itm !== btn.value;
-            });
-            console.log(allItemsList);
-            console.log(filteredList);
-            
-
-            localStorage.setItem('frige',JSON.stringify(filteredList));
-            document.querySelector('.upperCont').innerHTML = ``;
-            document.querySelector('.MidCont').innerHTML = ``;
-            document.querySelector('.LowerCont').innerHTML = ``;
-            updateItems();
-        });
-    });
+    
 });
 
 findRecipeSec.addEventListener('click',openRecipe=()=>{
