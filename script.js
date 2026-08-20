@@ -180,9 +180,16 @@ mealPlanner.addEventListener('click',()=>{
         <h1 class="w-full max-h-20 min-h-18 bg-[rgba(0,0,0,0.1)] text-[30px] flex items-center justify-around">Meal Planner🍴</h1>
         <div class="chatSection max-h-150 min-h-100 md:min-h-112.5 lg:min-h-125 bg-white "></div>
         <div class="chatInputSec bg-[rgba(0,0,0,0.1)] p-2 flex flex-row items-center justify-between gap-1">
-            <input class="px-2  bg-white rounded-2xl min-h-10 min-w-3/4" type="text" placeholder="Typing...">
-            <button class="bg-blue-500 shrink-0 cursor-pointer text-white rounded-2xl min-h-10 px-3">Send</button>
+            <input class="inputBox px-2  bg-white rounded-2xl min-h-10 min-w-3/4" type="text" placeholder="Typing...">
+            <button class="sendBtn bg-blue-500 shrink-0 cursor-pointer text-white rounded-2xl min-h-10 px-3">Send</button>
         </div>
     </div>`
     midSection.style.backgroundColor = "rgb(150, 150, 150)";
+
+    const chatSec = document.querySelector('.chatSection');
+    const sendBtn = document.querySelector('.sendBtn');
+    const inputBox = document.querySelector('.inputBox');
+    sendBtn.addEventListener('click',()=>{
+        alert("Hello world");
+    })
 })
