@@ -5,6 +5,7 @@ const midSection = document.querySelector('.midsection');
 const addItems = document.querySelector('.additem');
 const frigeItems = document.querySelector('#frigeItem');
 const findRecipeSec = document.querySelector('.findRecipes');
+const mealPlanner = document.querySelector('.mealPlan');
 
 burger.addEventListener('click',()=>{
     sidebar.classList.remove('left-0');
@@ -171,4 +172,10 @@ findRecipeSec.addEventListener('click',openRecipe=()=>{
     midSection.style.backgroundColor = "rgb(173, 154, 139)";
     midSection.innerHTML = `
     <h1 class="findRecipepagetext font-bold text-2xl">Here I will show recipes</h1>`
+})
+
+mealPlanner.addEventListener('click',()=>{
+    midSection.innerHTML = "";
+    midSection.style.backgroundColor = "rgb(224, 224, 224)";
+    alert("THis is mid section");
 })
