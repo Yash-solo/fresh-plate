@@ -178,10 +178,10 @@ mealPlanner.addEventListener('click',()=>{
     midSection.innerHTML = `
     <div class="MealWrap flex h-auto flex-col border overflow-hidden border-white rounded-4xl gap-0 lg:w-60/100 md:w-80/100 w-99/100 bg-gray-200">
         <h1 class="w-full max-h-20 min-h-18 bg-[rgba(0,0,0,0.1)] text-[30px] flex items-center justify-around">Meal Planner🍴</h1>
-        <div class="chatSection min-h-100 max-h-150 bg-white "></div>
-        <div class="chatInputSec bg-[rgba(0,0,0,0.1)] p-2 flex flex-row items-center justify-around">
+        <div class="chatSection max-h-150 min-h-100 md:min-h-112.5 lg:min-h-125 bg-white "></div>
+        <div class="chatInputSec bg-[rgba(0,0,0,0.1)] p-2 flex flex-row items-center justify-between gap-1">
             <input class="px-2  bg-white rounded-2xl min-h-10 min-w-3/4" type="text" placeholder="Typing...">
-            <button class="bg-blue-500 cursor-pointer text-white rounded-2xl min-h-10 px-3">Send</button>
+            <button class="bg-blue-500 shrink-0 cursor-pointer text-white rounded-2xl min-h-10 px-3">Send</button>
         </div>
     </div>`
     midSection.style.backgroundColor = "rgb(150, 150, 150)";
