@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,
+        "RecipeName":"Maalpua",
+        "RecipePic":"photos/images (1).jpg",
+        "category":"vegitarian",
+        "recipeMethod":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda atque officiis enim cum facere molestias beatae officia rem nobis laboriosam, ex quis aspernatur reprehenderit laborum rerum illum sunt iure cupiditate!"
+    },
+    {
+        "id":2,
+        "RecipeName":"Guliapaa",
+        "RecipePic":"photos/images (2).jpg",
+        "category":"vegitarian",
+        "recipeMethod":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda atque officiis enim cum facere molestias beatae officia rem nobis laboriosam, ex quis aspernatur reprehenderit laborum rerum illum sunt iure cupiditate!"
+        
+    }
+]
