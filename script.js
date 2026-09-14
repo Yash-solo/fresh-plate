@@ -102,7 +102,13 @@ frigeItems.addEventListener('click',()=>{
                 <input type="checkbox"value="${food.itm}" id="check"class="appearance-none h-[22px] w-[22px] border border-black rounded-[2px] inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-[20px] checked:after:text-white checked:after:font-bold">
                 <li>${food.itm}</li>
                 <p class="text-[15px] rounded-2xl bg-red-300 text-center px-2  text-red-500">${food.ex} days</p>
-                <button value="${food.itm}" class="deleteitm bg-amber-200 w-6 rounded-xs cursor-pointer">:</button>`
+                <button value="${food.itm}" class="deleteitm bg-amber-200 w-6 rounded-xs cursor-pointer"><svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 6h18" />
+                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                    <line x1="10" x2="10" y1="11" y2="17" />
+                    <line x1="14" x2="14" y1="11" y2="17" />
+                    </svg></button>`
                     
                 document.querySelector('.upperCont').appendChild(frigeNewItem);
             }else if(food.ex<=5){
@@ -110,7 +116,13 @@ frigeItems.addEventListener('click',()=>{
                 <input type="checkbox" value="${food.itm}" id="check"class="appearance-none h-[22px] w-[22px] border border-black rounded-[2px] inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-[20px] checked:after:text-white checked:after:font-bold">
                 <li>${food.itm}</li>
                 <p class="text-[15px] rounded-2xl bg-amber-200 text-center px-2  text-amber-500">${food.ex} days</p>
-                <button value="${food.itm}" class="deleteitm bg-amber-200 w-6 cursor-pointer rounded-xs">:</button>`
+                <button value="${food.itm}" class="deleteitm bg-amber-200 w-6 cursor-pointer rounded-xs"><svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 6h18" />
+                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                    <line x1="10" x2="10" y1="11" y2="17" />
+                    <line x1="14" x2="14" y1="11" y2="17" />
+                    </svg></button>`
                 document.querySelector('.MidCont').appendChild(frigeNewItem);
             }else{
                 frigeNewItem.innerHTML = `
@@ -185,7 +197,7 @@ frigeItems.addEventListener('click',()=>{
         console.log(promptList)
         const recipesList = data.filter((recipe)=>{
             return promptList.some((item)=>{
-                return item === recipe.RecipeName
+                return recipe.ingredients.includes(item);
             })
         })
         if(recipesList.length>3){
