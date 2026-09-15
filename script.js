@@ -37,6 +37,12 @@ addItems.addEventListener('click',()=>{
             <ul class="grid gap-5 text-[20px]">
                 <li>Enter your item name</li>
                 <input id="item" class="h-8 px-2" type="text"placeholder="ex:- Tomato">
+                <select class="selectCate">
+                    <option  value="vegitable">Vegitable</option>
+                    <option  value="Fruits">Fruit</option>
+                    <option  value="Recipes">Recipes</option>
+                    <option  value="other">other</option>
+                </select>
                 <li>In how many days your item will expire?</li>
                 <input id="exdate" class="h-8 px-2" type="number" placeholder="ex:- 3">
                 <button type="button" id="addBtn"class="cursor-pointer bg-amber-300 h-10 rounded-[5px]">Add item</button>
@@ -44,12 +50,17 @@ addItems.addEventListener('click',()=>{
         </div>
     </form>`
     const AddBtn = document.querySelector('#addBtn');
-
+    const options = document.querySelector('.selectCate');
+    let itemsCategory = [];
+    options.addEventListener('click',function(e){
+        itemsCategory.push(e.target.value);
+    })
     let items = JSON.parse(localStorage.getItem('frige'))||[];
     AddBtn.addEventListener('click',()=>{
+        const category = itemsCategory[itemsCategory.length-1]
         let item = document.querySelector('#item');
         let expireD = document.querySelector('#exdate');
-        items.push({itm : item.value ,ex : expireD.value });
+        items.push({itm : item.value ,ex : expireD.value,Category:category});
 
         //content clear
         item.value="";
@@ -287,7 +298,23 @@ function giveFooter(){
         `
 }
 function giveDeshboard(){
-    
+    let items = JSON.parse(localStorage.getItem('frige'))||[];
+    let fruits = 0;
+    let vegitables = 0;
+    let other = 0;
+    let Recipes = 0;
+
+    items.map((e)=>{
+        if(e.Category==='Fruits'){
+            fruits+=1;
+        }else if(e.Category==="Recipes"){
+            Recipes+=1;
+        }else if(e.Category==="other"){
+            other+=1;
+        }else{
+            vegitables+=1;
+        }
+    })
     midSection.classList.remove("h-screen")
     midSection.innerHTML = `
     <!-- Expire section items -->
@@ -339,22 +366,26 @@ function giveDeshboard(){
             <div class="w-full flex flex-row items-center gap-4 justify-evenly">
                 <div class="flex flex-col items-center justify-between">
                     <p><b>Vegitables</b></p>
-                    <p>0</p>
+                    <p>${vegitables}</p>
                 </div>
                 <div>
                     <p><b>Fruits</b></p>
-                    <p>0</p>
+                    <p>${fruits}</p>
                 </div>
                 <div>
                     <p><b>Recipes</b></p>
-                    <p>0</p>
+                    <p>${Recipes}</p>
+                </div>
+                <div>
+                    <p><b>Other</b></p>
+                    <p>${other}</p>
                 </div>
             </div>
         </div>
         <div class="h-auto w-full p-2 flex flex-col items-center justify-center gap-2 md:max-w-55 shadow-[0px_0px_10px_rgba(0,0,0,0.7)] border rounded-2xl border-[#ddd] bg-white">
-            <h4>Total frige items available:- 0</h4>
+            <h4>Total frige items available:- ${items.length}</h4>
             <h4>Total expire items:- 0</h4>
-            <h4>Total categories:- 0</h4>
+            <h4>Total categories:- ${items.length}</h4>
         </div>
     </div>
 
@@ -412,6 +443,7 @@ function giveDeshboard(){
 }
 deshBoard.addEventListener('click',()=>{
     midSection.style.backgroundColor = "white";
+    
     giveFooter();
     giveDeshboard();
 })
