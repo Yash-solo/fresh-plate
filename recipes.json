@@ -1,19 +1,107 @@
 [
     {
-        "id":1,
+        "id":0,
         "RecipeName":"Maalpua",
-        "RecipePic":"photos/images (1).jpg",
+        "RecipePic":"RecipesPictures/images (1).jpg",
         "category":"vegitarian",
         "ingredients":["Maalpua","flour","milk","water","cardamom","fennel"],
         "recipeMethod":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda atque officiis enim cum facere molestias beatae officia rem nobis laboriosam, ex quis aspernatur reprehenderit laborum rerum illum sunt iure cupiditate!"
     },
     {
-        "id":2,
+        "id":1,
         "RecipeName":"Guliapaa",
-        "RecipePic":"photos/images (2).jpg",
+        "RecipePic":"RecipesPictures/images (2).jpg",
         "category":"vegitarian",
         "ingredients":["Guliapaa","dosa rice","raw rice","oil or ghee","curry leaves","coriander leaves","ginger","Green chilies","onion","urad dal","fenugreek seeds","Beaten rice","Water","salt"],
         "recipeMethod":"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda atque officiis enim cum facere molestias beatae officia rem nobis laboriosam, ex quis aspernatur reprehenderit laborum rerum illum sunt iure cupiditate!"
         
+    },
+    {
+        "id":2,
+        "RecipeName":"Bhindi Masala",
+        "RecipePic":"RecipesPictures/bhindi masala.jpg",
+        "category":"vegitarian",
+        "ingredients":["bhindi","oil","cumin seeds","mustard seeds","chillies","chopped chillies","hing","onions","onion","chopped onions","salt","ginger garlic paste","spices","chilli","red chilli","garam masala","coriander","cumin","turmeric","tomato","chopped tomatoes"],
+        "recipeMethod":"In a pan, add 1½ tablespoon of oil, and lightly heat it up for about a minute. To it add ½ teaspoon of cumin seeds, and then ½ teaspoon of mustard seeds, and let them roast for a minute or so.\n    When the mustard seeds start crackling, add 10 curry leaves, 1 chopped green chilli, and 1 teaspoon asafoetida / hing. Mix everything together, and lightly roast them for 30 seconds or so.\n    Then add 1 cup of chopped onions, along with 1 teaspoon of salt, and saute on medium flame for 7-8 minutes, till the onions turn light brown in color.\n    When the onions are done, add 1 tablespoon of ginger garlic paste, mix it in, and lightly roast it for 1-2 minutes, just until the raw smell of ginger and garlic goes away.\n    Then add the spice powders (preferably all together, to avoid them from burning, so best to pre mix them and add) - ½ teaspoon red chilli powder, ½ teaspoon garam masala powder, ½ teaspoon coriander powder, ¼ teaspoon cumin powder, and ⅛ teaspoon turmeric powder. Here you can also add a splash of water and lower the flame for a bit to avoid the masalas from getting burnt.\n    Lightly roast the spices for about 30-60 seconds.\n\nstep by step photos of making onion tomato base for bhindi masala\n\n    When the spices have been lightly roasted, add in ¾ cup of chopped tomatoes, and saute for 2-3 minutes, till the tomatoes have cooked down a bit.\n    \n    Now to this add the pre-roasted chopped bhindi, mix it in, and saute for 5 minutes or so, till the bhindi is fully done. Here it is best to not cover the pan while cooking bhindi, so as to not incorporate any additional steam or moisture, which might make the bhindi slimy.\n    \n    When done, turn off the flame, and serve hot."
+    },
+    {
+        "id":3,
+        "RecipeName":"Bhindi Fry",
+        "RecipePic":"RecipesPictures/bhindi Fry.jpg",
+        "category":"vegitarian",
+        "ingredients":["bhindi","oil","cumin seeds","mustard seeds","chillies","chopped chillies","hing","onions","onion","chopped onions","salt","ginger garlic paste","spices","chilli","red chilli","garam masala","coriander","cumin","turmeric","tomato","chopped tomatoes"],
+        "recipeMethod":"Heat about an inch and a half of oil in a small pot and fry the bhindi in batches until it is a dark forest-y green, drain well on paper towels to remove excess oil. (see notes!)\nSliced okra pieces frying in hot oil in a black skillet, with bubbles forming around the okra as it cooks-a delicious start to any Bhindi Masala Recipe.\nAdd a splash of the oil into a medium saucepan or wok and put the pan on medium high heat\nNow add the onions and fry them - if you like a softer more saucy bhindi then fry so the onion is translucent. I like it to have more depth and be a little drier so my preference is caramelized edges!\nStir in the green chilies, ginger and garlic pastes, sauteeing for about a minute\nSliced onions and green chilies being sautéed and caramelized in oil in a black nonstick pan, stirred with a wooden spatula for a flavorful Bhindi Masala Recipe.\nAdd the tomatoes and spices and saute to create a masala. Tip: if you add a splash of water and cover the pan for 30 seconds the tomatoes break down much faster.\nA black pan on a stove filled with chunky red tomato sauce simmering, steam rising against a dark background-perfect for starting your Bhindi Masala Recipe.\nGently mix in your bhindi cook on low, covered for 5 minutes.\nA person pours chopped okra from a white plate into a black pan filled with tomato sauce, using a wooden slotted spoon, preparing the base for a flavorful Bhindi Masala Recipe.\nAdjust seasoning (a squeeze of lemon juice is so nice), consistency with water, more chilies if needed, and enjoy!"
+    },
+    {
+        "id":4,
+        "RecipeName":"Bharwa Bhindi",
+        "RecipePic":"RecipesPictures/Bharawa bhindi.jpg",
+        "category":"vegitarian",
+        "ingredients":["bhindi","okra","vegitable oil","oil"],
+        "recipeMethod":"Wash the bhindi and let it dry. I often use a paper towel to pat dry them. Then make a cut in each bhindi lengthwise without cutting through the entire length. They should still be joint at one end. Do this with every bhindi and then set them aside.\nTo a large bowl add desiccated coconut powder, coriander powder, cumin powder, dried mango powder (amchur), red chili powder, garam masala, turmeric powder and salt.\nMix all the spices together with a spoon. Then add 2 teaspoons of oil to the stuffing and mix it well with the spices. The stuffing for the bhindi is now ready.\nTake one bhindi and stuff it with the prepared masala. Repeat with the remaining bhindis. Make sure to stuff them well with a generous amount of masala. Set them aside.\nHeat 2 tablespoons of oil in a large pan on medium heat. Place the stuffed bhindi in a single layer in the pan. After 2 minutes, lower the heat to medium-low and cover the pan.\nAfter 2 minutes, open the pan and carefully flip each bhindi. Cover the pan again and flip the bhindi again after 2 minutes.\nKeep tossing the bhindi after every 2-3 minutes or so until it's tender and done. This will take around 15 minutes on low heat.\nServe bharwa bhindi hot with roti or paratha. You can squeeze some lemon juice on top before serving for extra tang or also garnish with cilantro."
+    },
+    {
+        "id":5,
+        "RecipeName":"Bhindi Do Pyaza",
+        "RecipePic":"RecipesPictures/bhindi-do-pyaza-recipe.jpg",
+        "category":"vegitarian",
+        "ingredients":["Bhindi","okra","ladies finger","Onions","onion","Green Chillies","Ginger Garlic","paste","Tomato","Cumin Seeds","Turmeric Powder","Red Chilli Powder","Coriander Cumin Powder","Lemon","Salt","Oil","Coriander Leaves"],
+        "recipeMethod":"Wash bhindi in water and dry them completely. Cut it into 1-inch long pieces after removing its top and tail.\nHeat 1½ tablespoons oil in a pan. Add cut bhindi pieces and cook them on medium flame until they turn dark green or for 7-8 minutes. Transfer to a plate.\nHeat remaining 2 teaspoons oil in same pan. Add cumin seeds and when they begin to crackle, add crushed ginger garlic. Sauté for around 30 seconds.\nAdd onion and green chilli pieces; sauté until onion turns light brown, approx. 1-2 minutes.\nAdd chopped tomatoes and cook for 2-3 minutes.\nAdd red chilli powder, turmeric powder and coriander-cumin powder; mix well.\nAdd cooked bhindi, lemon juice and salt; cook for 2-3 minutes.\nTurn off the flame and transfer prepared curry to a serving bowl.\nGarnish bhindi do pyaza with coriander leaves and serve hot."
+    },
+    {
+        "id":6,
+        "RecipeName":"Tomato Bhindi",
+        "RecipePic":"RecipesPictures/bhindiMasalaWithTomatos.jpg",
+        "category":"vegitarian",
+        "ingredients":["okra","vegetable oil","ground fenugreek seeds","unsalted roasted peanuts","fresh cilantro","salt","sugar","ground cumin","garlic","serrano chile","chickpea flour or all-purpose flour","ground coriander","ground turmeric","tomatoes","black mustard seeds","Kashmiri chile powder","roti or naan"],
+        "recipeMethod":"1. Pulse the tomatoes in a food processor until mostly smooth, using 8 to 10 pulses. Set aside.\n2. Heat 2 tablespoons of oil in a large skillet over medium heat. Add the fenugreek seeds and cook, stirring constantly, for about 10 seconds until fragrant.\n3. Add the dried okra and cook, stirring occasionally, for about 10 minutes, until tender and charred in spots.\n4. Reduce the heat to low. Stir in the peanuts, cilantro, salt, sugar, cumin, garlic, serrano chile, chickpea flour, coriander, turmeric, and the remaining 2 tablespoons of oil.\n5. Cook, stirring often, for about 2 minutes, until fragrant and the peanuts are lightly toasted. Taste and adjust the salt, then remove from the heat.\n6. To make the tomato sauce, heat the tomato mixture in a medium skillet over medium-low heat. Add the mustard seeds, sugar, chile powder, coriander, turmeric, and salt.\n7. Bring the sauce to a simmer, then reduce the heat to medium-low. Cook, stirring occasionally, for 18 to 24 minutes, until it thickens and a spoon leaves a trail. Cover and remove from the heat.\n8. Reheat the tomato sauce over medium-low heat for 2 to 4 minutes. Spoon it onto a serving platter and top with the bhindi mixture.\n9. Garnish with additional peanuts and cilantro. Serve hot with roti or naan."
+    },
+    {
+        "id":7,
+        "RecipeName":"Karela Fry",
+        "RecipePic":"RecipesPictures/karelafry.webp",
+        "category":"vegitarian",
+        "ingredients":["bitter gourd (karela)","turmeric powder","red chili powder","cumin powder","coriander powder","fennel powder","garam masala","asafoetida (hing)","dried mango powder (amchur powder)","gram flour (besan)","oil","salt"],
+        "recipeMethod":"Heat oil in a frying pan or kadai.\nAdd the karela slices and sauté on low or medium-low heat till the slices are lightly browned. This takes about 8 to minutes, keep stirring in between.\nNow, add all the dry ground spice powders and salt.\nStir and sauté for 2 to 3 minutes more on low heat.\nLastly, add the besan (gram flour) and sauté for some minutes or till the rawness of the besan goes away. This takes about 3 to 4 minutes.\nGarnish with coriander leaves.\nServe Karela Fry with dal-rice, kadhi-rice or sambar-rice."
+    },
+    {
+        "id":8,
+        "RecipeName":"Bharwa Karela",
+        "RecipePic":"RecipesPictures/bharwan-karela.webp",
+        "category":"vegitarian",
+        "ingredients":["small karela","bitter gourd","turmeric powder (ground turmeric)","red chili powder or cayenne pepper","garam masala","dry mango powder (amchur powder)","fennel powder","onions, finely sliced","oil","chopped coriander leaves for garnish","salt"],
+        "recipeMethod":"1. Wash the karela, trim the ends, and make a lengthwise slit without cutting through. Remove the seeds and soft center.\n2. Rub the karela with salt and turmeric, then set aside for 20 to 30 minutes. Rinse and pat dry.\n3. Mix red chili powder, garam masala, dry mango powder, fennel powder, and salt to prepare the stuffing.\n4. Fill each karela generously with the spice mixture and tie with kitchen thread so the filling stays inside.\n5. Heat the oil in a pan over medium heat, then lower the heat. Place the stuffed karela in the pan.\n6. Cover and cook on low heat, turning every 2 to 3 minutes, until browned, tender, and fork-tender. This takes about 15 to 20 minutes.\n7. Remove the cooked karela and set aside. In the same pan, add the sliced onions and fry until crisp and golden. Add more oil if needed.\n8. Return the karela to the pan and sauté gently with the onions. Add any leftover spice mixture and adjust the salt.\n9. Remove the kitchen thread, garnish with chopped coriander leaves, and serve hot or warm with roti, phulka, or dal-rice."
+    },
+    {
+        "id":9,
+        "RecipeName":"Karela Pyaz ki Sabzi",
+        "RecipePic":"RecipesPictures/karela_Pyazz.webp",
+        "category":"vegitarian",
+        "ingredients":["karela","onion","fennel seeds","coriander powder","chili powder","turmeric powder","dry mango powder","garam masala","mustard oil","yogurt","salt"],
+        "recipeMethod":"1. Lightly scrape the karela and cut it into 3-inch strips.\n2. Boil water in a pan. Add 1 teaspoon of salt, a pinch of turmeric, and the karela. Cook until the karela is half-cooked, then drain the water.\n3. Heat oil in a pan. Add the fennel seeds and sliced onion. Sauté for 1 minute.\n4. Add the karela and cook until all the moisture evaporates and the onion and karela become lightly pink.\n5. Add all the dry spices and sauté for 1 minute.\n6. Add the yogurt and cook until the moisture dries up.\n7. Serve hot with roti or rice."
+    },
+    {
+        "id":10,
+        "RecipeName":"Bottle Gourd (Lauki) Curry:",
+        "RecipePic":"RecipesPictures/laukysubji.webp",
+        "category":"vegitarian",
+        "ingredients":["bottle gourd","coconut milk","yogurt","water","curry leaves","green chili","salt","oil","mustard seeds","cumin seeds"],
+        "recipeMethod":"Rinse and peel the bottle gourd and cut into small bite size pieces. Taste and check if the bottle gourd tastes bitter. If bitter, then trash it and do not use.\nAdd the bottle gourd pieces, salt, curd, curry leaves, green chilies and water in a pan. Mix very well.\nYou can even mix the curd well in the water first and then add bottle gourd pieces, salt, curry leaves and green chilies.\nStir and cook without a lid on low to medium-low heat for 12 to 15 minutes or till the bottle gourd pieces are fully cooked.\nAdd the coconut milk and simmer for a minute. Don't cook much as the coconut milk will curdle otherwise."
+    },
+    {
+        "id":11,
+        "RecipeName":"Lauki Tomato Sabzi",
+        "RecipePic":"RecipesPictures/laukeyTomatosbji.webp",
+        "category":"vegitarian",
+        "ingredients":["Bottle gourd","Tomatoes, chopped","Green chili, chopped","Turmeric powder","Salt","Sugar, optional","Cooking oil or ghee","Cumin seeds","Asafoetida powder","Fresh coriander","Lemon juice"],
+        "recipeMethod":"1. Peel the bottle gourd and cut it into small pieces.\n2. Heat oil or ghee in a pressure cooker.\n3. Add cumin seeds and let them crackle. Add green chili and asafoetida, then cook for a few seconds.\n4. Add the tomatoes and salt. Cook until the tomatoes become soft.\n5. Add turmeric and the bottle gourd. Mix well.\n6. Add 1 cup of water.\n7. Close the cooker and cook for 3 to 4 whistles, until the bottle gourd is soft.\n8. Let the pressure go down before opening the cooker.\n9. Add sugar, lemon juice, and coriander if desired. Mix well.\n10. Serve hot with roti or rice."
+    },
+    {
+        "id":12,
+        "RecipeName":"Gourd (Tinda/Ridge Gourd) Masala",
+        "RecipePic":"RecipesPictures/tinda.webp",
+        "category":"vegitarian",
+        "ingredients":["ridge gourd","toor dal","onion","tomato","ginger","garlic","turmeric powder","red chili powder","coriander powder","salt","coriander leaves","oil","cumin seeds"],
+        "recipeMethod":""
     }
 ]

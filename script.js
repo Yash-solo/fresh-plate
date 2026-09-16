@@ -45,7 +45,7 @@ addItems.addEventListener('click',()=>{
                 </select>
                 <li>In how many days your item will expire?</li>
                 <input id="exdate" class="h-8 px-2" type="number" placeholder="ex:- 3">
-                <button type="button" id="addBtn"class="cursor-pointer bg-amber-300 h-10 rounded-[5px]">Add item</button>
+                <button type="button" id="addBtn"class="hover:-bg-amber-200 cursor-pointer bg-amber-300 h-10 rounded-[5px]">Add item</button>
             </ul>
         </div>
     </form>`
@@ -67,7 +67,6 @@ addItems.addEventListener('click',()=>{
         expireD.value = "";
 
         localStorage.setItem('frige',JSON.stringify(items));
-        alert("Your item added succesfully");
     });
 });
 
