@@ -304,7 +304,7 @@ function giveDeshboard(){
     let other = 0;
     let Recipes = 0;
 
-    items.map((e)=>{
+    items.forEach((e)=>{
         if(e.Category==='Fruits'){
             fruits+=1;
         }else if(e.Category==="Recipes"){
