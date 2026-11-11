@@ -8,6 +8,7 @@ const findRecipeSec = document.querySelector('.findRecipes');
 const mealPlanner = document.querySelector('.mealPlan');
 const deshBoard = document.querySelector('.Dashboard');
 const footer = document.querySelector('.Footer');
+
 burger.addEventListener('click',()=>{
     sidebar.classList.remove('left-0');
     sidebar.classList.toggle('-left-full');
@@ -200,29 +201,36 @@ frigeItems.addEventListener('click',()=>{
     findRecipeBtn.addEventListener('click',async()=>{
         openRecipe();
         //take response 
+        try{
 
-        const response = await fetch("recipes.json");
-        const data = await response.json();
-        console.log(data);
-        console.log(promptList)
-        const recipesList = data.filter((recipe)=>{
-            return promptList.some((item)=>{
-                return recipe.ingredients.includes(item);
-            })
-        })
-        if(recipesList.length>3){
-            midSection.classList.remove("h-screen");
+            const response = await fetch("http://localhost:3000/askRecipe",{
+                method:'POST',
+                headers:{ 'Content-Type': 'application/json' },
+                body:JSON.stringify(promptList)
+            });
+            if(response.ok){
+                const data = await response.json();
+                console.log("data Status:- ",data.status);
+                console.log("data content :- ",data.items);
+                
+                if(data.items.length>3){
+                    midSection.classList.remove("h-screen");
+                }
+                data.items.map((recipe)=>{
+                    const recipeDiv = document.createElement('div');
+                    recipeDiv.classList.add("p-1","w-full","flex","flex-col","gap-1","bg-white","border","border-[#ddd]","rounded-2xl","items-center","justify-around");
+                    recipeDiv.innerHTML = `
+                    <img class="rounded-2xl h-30 w-full object-cover "src="${recipe.picture}">
+                    <h1 class="text-xl text-gray-800">${recipe.Name}</h1>
+                    <p class="text-[10px] text-gray-800">Category:- ${recipe.category}</p>`
+        
+                    document.querySelector('.findRecipepagetext').appendChild(recipeDiv);
+                })
+            }
+        }catch(err){
+            console.log("ERROR:- ",err.message);
         }
-        recipesList.map((recipe)=>{
-            const recipeDiv = document.createElement('div');
-            recipeDiv.classList.add("p-1","w-full","flex","flex-col","gap-1","bg-white","border","border-[#ddd]","rounded-2xl","items-center","justify-around");
-            recipeDiv.innerHTML = `
-            <img class="rounded-2xl h-30 w-full object-cover "src="${recipe.RecipePic}">
-            <h1 class="text-xl text-gray-800">${recipe.RecipeName}</h1>
-            <p class="text-[10px] text-gray-800">Category:- ${recipe.category}</p>`
-
-            document.querySelector('.findRecipepagetext').appendChild(recipeDiv);
-        })
+        
     });
     
     
