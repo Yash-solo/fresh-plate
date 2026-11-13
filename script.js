@@ -218,13 +218,20 @@ frigeItems.addEventListener('click',()=>{
                 }
                 data.items.map((recipe)=>{
                     const recipeDiv = document.createElement('div');
-                    recipeDiv.classList.add("p-1","w-full","flex","flex-col","gap-1","bg-white","border","border-[#ddd]","rounded-2xl","items-center","justify-around");
+                    recipeDiv.value = recipe.Method;
+                    recipeDiv.classList.add("checkMethod","cursor-pointer","p-1","w-full","flex","flex-col","gap-1","bg-white","border","border-[#ddd]","rounded-2xl","items-center","justify-around");
                     recipeDiv.innerHTML = `
                     <img class="rounded-2xl h-30 w-full object-cover "src="${recipe.picture}">
                     <h1 class="text-xl text-gray-800">${recipe.Name}</h1>
                     <p class="text-[10px] text-gray-800">Category:- ${recipe.category}</p>`
         
                     document.querySelector('.findRecipepagetext').appendChild(recipeDiv);
+                })
+                const allmethod = document.querySelectorAll('.checkMethod');
+                allmethod.forEach((el)=>{
+                    el.addEventListener('click',(e)=>{
+                        alert(e.target.value);
+                    })
                 })
             }
         }catch(err){
@@ -246,6 +253,7 @@ findRecipeSec.addEventListener('click',openRecipe=async()=>{
     <div class="findRecipepagetext w-full  grid gap-3 items-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 font-bold text-2xl">
 
     </div>`
+    
 })
 
 mealPlanner.addEventListener('click',()=>{
