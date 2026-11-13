@@ -230,7 +230,13 @@ frigeItems.addEventListener('click',()=>{
                 const allmethod = document.querySelectorAll('.checkMethod');
                 allmethod.forEach((el)=>{
                     el.addEventListener('click',(e)=>{
-                        alert(e.target.value);
+                        const showMETHOD = document.querySelector('div');
+                        showMETHOD.classList.add("fixed","top-0","left-0","w-full","h-full","flex","flex-col","items-center","justify-center","bg-[rgba(0,0,0,0.5)]","backdrop-blur(2px)")
+                        showMETHOD.innerHTML = `
+                        <div class="md:w-100 w-80 h-100 rounded-2xl bg-[#ddd] p-3">
+                            <h1>${el.value}</h1>
+                        </div>`
+                        midSection.appendChild(showMETHOD)
                     })
                 })
             }
