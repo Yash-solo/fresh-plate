@@ -7,7 +7,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "backend": "nodemon ./src/index.js"
+    "backend": "node ./src/index.js"
   },
   "dependencies": {
     "cors": "^2.8.6",
