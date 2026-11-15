@@ -210,7 +210,7 @@ frigeItems.addEventListener('click',()=>{
             });
             if(response.ok){
                 const data = await response.json();
-                
+                console.log("Data:- ",data);
                 if(data.status ===200){
                     //name the data
                     const recipes = data.item;

@@ -2,7 +2,9 @@ import express from 'express';
 import cors from 'cors';
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin:"https://fresh-plate-frontend.vercel.app",
+}));
 app.use(express.json());//JSON body parser middleware
 
 
