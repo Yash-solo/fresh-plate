@@ -186,7 +186,7 @@ frigeItems.addEventListener('click',()=>{
         checkboxes.addEventListener('change',()=>{
             if(checkboxes.checked){
                 if(!promptList.includes(checkboxes.value)){
-                    promptList.push(checkboxes.value);
+                    promptList.push(checkboxes.value.toLowerCase());
                 }
             }else{
                 const delInx = promptList.indexOf(checkboxes.value);
