@@ -210,25 +210,28 @@ frigeItems.addEventListener('click',()=>{
             });
             if(response.ok){
                 const data = await response.json();
+                
                 if(data.status ===200){
                     //name the data
-                    const recipe = data.item;
-
+                    const recipes = data.item;
                     if(data.item.length>3){
                         midSection.classList.remove("h-screen");
                     }
 
                     //create a div
-                    const recipeDiv = document.createElement('div');
-                    recipeDiv.value = recipe.method;
-                    recipeDiv.classList.add("checkMethod","cursor-pointer","p-1","w-full","flex","flex-col","gap-1","bg-white","border","border-[#ddd]","rounded-2xl","items-center","justify-around");
-                    recipeDiv.innerHTML = `
-                    <img class="rounded-2xl h-30 w-full object-cover "src="${recipe.Pic}">
-                    <h1 class="text-xl text-gray-800">${recipe.Name}</h1>
-                    <p class="text-[10px] text-gray-800">Category:- ${recipe.category}</p>`
-            
-                    document.querySelector('.findRecipepagetext').appendChild(recipeDiv);
-                    
+                    recipes.map((recipe)=>{
+
+                        const recipeDiv = document.createElement('div');
+                        recipeDiv.value = recipe.method;
+                        recipeDiv.classList.add("checkMethod","cursor-pointer","p-1","w-full","flex","flex-col","gap-1","bg-white","border","border-[#ddd]","rounded-2xl","items-center","justify-around");
+                        recipeDiv.innerHTML = `
+                        <img class="rounded-2xl h-30 w-full object-cover "src="${recipe.Pic}">
+                        <h1 class="text-xl text-center text-gray-800">${recipe.Name}</h1>
+                        <p class="text-[10px] text-gray-800">Category:- ${recipe.category}</p>`
+                
+                        document.querySelector('.findRecipepagetext').appendChild(recipeDiv);
+                        
+                    })
                 }else{
                     document.querySelector('.FoundSomething').textContent = data.message;
                 }
