@@ -203,7 +203,7 @@ frigeItems.addEventListener('click',()=>{
         //take response 
         try{
             console.log(promptList);
-            const response = await fetch("http://localhost:3000/askRecipe",{
+            const response = await fetch("https://fresh-plate.onrender.com/askRecipe",{
                 method:'POST',
                 headers:{ 'Content-Type': 'application/json' },
                 body:JSON.stringify(promptList)
