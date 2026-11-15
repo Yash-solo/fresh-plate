@@ -9,10 +9,10 @@ connectDB()
     app.post('/askRecipe',async(req,res)=>{
         try {
             console.log("promptList:- ",req.body);
-            const getRecipe = await Recipe.findOne({
+            const getRecipe = await Recipe.find({
                 ingredients:{$in :req.body},
             });
-
+            
             if(getRecipe!==null){
                 res.status(200).json({
                     success: true,
