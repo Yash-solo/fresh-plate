@@ -220,18 +220,36 @@ frigeItems.addEventListener('click',()=>{
 
                     //create a div
                     recipes.map((recipe)=>{
-
                         const recipeDiv = document.createElement('div');
                         recipeDiv.value = recipe.method;
                         recipeDiv.classList.add("checkMethod","cursor-pointer","p-1","w-full","flex","flex-col","gap-1","bg-white","border","border-[#ddd]","rounded-2xl","items-center","justify-around");
                         recipeDiv.innerHTML = `
                         <img class="rounded-2xl h-30 w-full object-cover "src="${recipe.Pic}">
-                        <h1 class="text-xl text-center text-gray-800">${recipe.Name}</h1>
+                        <h1 class="text-sm text-center text-gray-800">${recipe.Name}</h1>
                         <p class="text-[10px] text-gray-800">Category:- ${recipe.category}</p>`
                 
                         document.querySelector('.findRecipepagetext').appendChild(recipeDiv);
                         
                     })
+                    const allRecipe = document.querySelectorAll(".checkMethod");
+                    allRecipe.forEach((recipe)=>{
+                        recipe.addEventListener('click',()=>{
+
+                            const existingModal = document.querySelector('.methodshow');
+                            if (existingModal) existingModal.remove();//remove previous recipe
+
+
+                            const MethodDiv = document.createElement('div');
+                            MethodDiv.classList.add("methodshow","w-full","h-full","bg-[rgba(0,0,0,0.5)]","backdrop-blur-2xl","flex","items-center","justify-center","fixed","top-0","left-0")
+                            MethodDiv.innerHTML = `
+                            <div class="methodshow2 w-75 bg-[#ddd] rounded-2xl md:w-100  lg:w-120  p-3 text-center">
+                                <h1 onclick="document.querySelector('.methodshow').style.display = 'none';"class="cut cursor-pointer"><b>👈</b></h1>
+                                <h1>${recipe.value}</h1>
+                            </div>`
+                            midSection.appendChild(MethodDiv);
+                        })
+                    })
+
                 }else{
                     document.querySelector('.FoundSomething').textContent = data.message;
                 }
@@ -253,7 +271,7 @@ findRecipeSec.addEventListener('click',openRecipe=async()=>{
     midSection.style.backgroundColor = "rgb(173, 154, 139)";
     midSection.innerHTML = `
     <h1 class="FoundSomething text-[25px] text-white font-bold md:text-2xl w-full text-center">Show all recipes</h1>
-    <div class="findRecipepagetext w-full  grid gap-3 items-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 font-bold text-2xl">
+    <div class="findRecipepagetext w-full  m-4 grid gap-3 items-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 font-bold text-2xl">
 
     </div>`
     
