@@ -3,10 +3,7 @@ import cors from 'cors';
 
 const app = express();
 app.use(cors({
-    origin:"https://fresh-plate-frontend.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true, // Include this if you send cookies or auth header
+    origin:"https://fresh-plate-frontend.vercel.app/",
 }));
 app.use(express.json());//JSON body parser middleware
 
