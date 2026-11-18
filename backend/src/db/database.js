@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import {Recipe} from '../models/Recipe.model.js'
 import { DB_Name } from '../constants.js';
 import 'dotenv/config';
 

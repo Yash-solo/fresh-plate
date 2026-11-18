@@ -1,5 +1,5 @@
 import {MealPlanner} from "./OtherPages/Mealplanner.js"
-
+import {getFrigeHTML} from "./OtherPages/Frigeitem.js"
 
 const burger = document.querySelector('#menubar');
 const cross = document.querySelector('#cutbar');
@@ -75,194 +75,137 @@ addItems.addEventListener('click',()=>{
 });
 
 frigeItems.addEventListener('click',()=>{
-    midSection.classList.add("flex"); 
-    midSection.classList.add("h-screen");
     footer.innerHTML = ``;
 
-    midSection.innerHTML = `
-    <h1 class="font-bold md:w-1/2 w-9/10 text-2xl text-center bg-white p-3 rounded-2xl">Your frige</h1>
-    <div class="frigeContainer md:w-1/2 flex flex-col gap-3 p-3 bg-white h-auto w-9/10 rounded-2xl border border-gray-500">
-        <div class="firstExp p-3 min-h-35 max-h-35 w-full rounded-2xl overflow-y-auto shadow shadow-gray-400  bg-center object-cover"style="background-image:url('./imagesfrige/upper.png')">
-            <div class="upperCont flex flex-col gap-2  text-2xl">
-            </div>
-        </div>
+    getFrigeHTML(midSection);
 
-        <div class="secondExp p-3 min-h-35 overflow-y-auto max-h-35 w-full rounded-2xl shadow shadow-gray-400 overflow-hidden bg-center object-cover"style="background-image:url('./imagesfrige/middle.png')">
-            <div class="MidCont flex flex-col gap-2  text-2xl">
-            </div>
-        </div>
-        <div class="thirdExp p-3 min-h-35 overflow-y-auto max-h-35 w-full rounded-2xl shadow shadow-gray-400 overflow-hidden bg-center object-cover"style="background-image:url('./imagesfrige/lower.png')">
-        <div class="LowerCont flex flex-col gap-2  text-2xl">
-        </div>
-        </div>
-    </div>
-    <button class="findRecipe p-3 hover:bg-pink-800 text-[20px] cursor-pointer font-bold fixed md:fixed md:bottom-3 md:right-3 bottom-1 right-1 bg-pink-900 border text-white border-white rounded-4xl">Find recipe</button>
-        
-        `;
-    //screen background
-    midSection.style.backgroundColor = "rgba(4, 1, 43)";
     
     //take all items and store them from the localstorage
-    function updateItems(){
+    async function updateItems(){
         let items = JSON.parse(localStorage.getItem('frige'))||[];
-            
+        let MyItemPics = [];
         //create
-        for(let food of items){
-            let frigeNewItem = document.createElement('ul');
-            frigeNewItem.classList.add("flex","flex-row","p-2","bg-white","rounded-[10px]","text-2xl","justify-around","items-center");
-
-            if(food.ex<=3){
-                frigeNewItem.innerHTML = `
-                <input type="checkbox"value="${food.itm}" id="check"class="appearance-none h-[22px] w-[22px] border border-black rounded-[2px] inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-[20px] checked:after:text-white checked:after:font-bold">
-                <li>${food.itm}</li>
-                <p class="text-[15px] rounded-2xl bg-red-300 text-center px-2  text-red-500">${food.ex} days</p>
-                <button value="${food.itm}" class="deleteitm bg-amber-200 w-6 rounded-xs cursor-pointer"><svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 6h18" />
-                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                    <line x1="10" x2="10" y1="11" y2="17" />
-                    <line x1="14" x2="14" y1="11" y2="17" />
-                    </svg></button>`
-                    
-                document.querySelector('.upperCont').appendChild(frigeNewItem);
-            }else if(food.ex<=5){
-                frigeNewItem.innerHTML = `
-                <input type="checkbox" value="${food.itm}" id="check"class="appearance-none h-[22px] w-[22px] border border-black rounded-[2px] inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-[20px] checked:after:text-white checked:after:font-bold">
-                <li>${food.itm}</li>
-                <p class="text-[15px] rounded-2xl bg-amber-200 text-center px-2  text-amber-500">${food.ex} days</p>
-                <button value="${food.itm}" class="deleteitm bg-amber-200 w-6 cursor-pointer rounded-xs"><svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 6h18" />
-                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                    <line x1="10" x2="10" y1="11" y2="17" />
-                    <line x1="14" x2="14" y1="11" y2="17" />
-                    </svg></button>`
-                document.querySelector('.MidCont').appendChild(frigeNewItem);
-            }else{
-                frigeNewItem.innerHTML = `
-                <input type="checkbox" value="${food.itm}"id="check" class="appearance-none h-5.5 w-5.5 border border-black rounded-xs inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-white checked:after:text-[20px] checked:after:font-bold ">
-                <li>${food.itm}</li>
-                <p class="text-[15px] rounded-2xl bg-green-200 text-center px-2  text-green-600">${food.ex} days</p>
-                <button value="${food.itm}" class="deleteitm bg-amber-200 w-6 cursor-pointer rounded-xs"><svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 6h18" />
-                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                    <line x1="10" x2="10" y1="11" y2="17" />
-                    <line x1="14" x2="14" y1="11" y2="17" />
-                    </svg>
-                </button>`
-                document.querySelector('.LowerCont').appendChild(frigeNewItem);
-            }
-        
-        }
-
-        //delete a perticular item via update
-        const deleteItem = document.querySelectorAll('.deleteitm');
-        
-        deleteItem.forEach(btn=>{
-            btn.addEventListener('click',()=>{
-                //update local storage using array filter
-                let allItemsList = JSON.parse(localStorage.getItem('frige'));
-                let filteredList = allItemsList.filter(ele=>{
-                    return ele.itm !== btn.value;
+        const myfun = async()=>{
+            try{
+                const response = await fetch("http://localhost:3000/fridgeItem",{
+                    method:'POST',
+                    headers:{ 'Content-Type': 'application/json' },
+                    body:JSON.stringify(items)
                 });
-                console.log(allItemsList);
-                console.log(filteredList);
-                
-                //update via set 
-                localStorage.setItem('frige',JSON.stringify(filteredList));
+                if(response){
+                    const data = await response.json();
+                    MyItemPics.push(...data.itemPics);
+                }
+            }catch(err){
+                console.log("Error based on something says:- ",err.message);
+            }
+        }
+        const handler = async()=>{
+            await myfun();
 
-                document.querySelector('.upperCont').innerHTML = ``;
-                document.querySelector('.MidCont').innerHTML = ``;
-                document.querySelector('.LowerCont').innerHTML = ``;
-                updateItems();
+            for(let i=0;i<items.length;i++){
+                let frigeNewItem = document.createElement('ul');
+                frigeNewItem.classList.add("flex","flex-row","p-2","bg-white","rounded-[10px]","text-2xl","justify-around","items-center");
+    
+    
+                frigeNewItem.innerHTML = `
+                    <div title="Expires in:- ${items[i].ex}d" class=" p-2 flex items-center justify-around flex-col gap-2  border border-[#ddd] rounded-lg">
+                        <input type="checkbox" value="${items[i].itm}"id="check" class="check appearance-none mr-13 h-5 w-5 border border-[#ddd] rounded-xs inline-flex justify-center items-center cursor-pointer checked:bg-green-500 checked:after:content-['✓'] checked:after:text-white checked:after:text-[20px] checked:after:font-bold ">
+                        <img class="h-17 rounded-[5px]" src="${MyItemPics[i]?MyItemPics[i]:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPp2yIijUoYN_NhUd79gE73K_MTbdk7Z5QicZgz6F1qg&s=10"}" alt="${items[i].itm}">
+                        <span class="font-bold text-sm w-full text-center">${items[i].itm}</span>
+                    </div>`
+                    document.querySelector('.LowerCont').appendChild(frigeNewItem);
+            }
+            //checkbox handling and create array for prompt
+            let allCheckBox = document.querySelectorAll('#check');
+            
+            let promptList = [];
+            
+            allCheckBox.forEach(checkboxes=>{
+                checkboxes.addEventListener('change',()=>{
+                    if(checkboxes.checked){
+                        if(!promptList.includes(checkboxes.value)){
+                            promptList.push(checkboxes.value.toLowerCase());
+                        }
+                    }else{
+                        const delInx = promptList.indexOf(checkboxes.value);
+                        promptList.splice(delInx,1);
+                    }
+                });
+                
             });
-        });
+
+            
+            //make find recipe prompt and jump to find recipe section 
+            const findRecipeBtn = document.querySelector('.findRecipe');
+            findRecipeBtn.addEventListener('click',async()=>{
+                openRecipe();
+                //take response 
+                try{
+                    console.log(promptList);
+                    //link :- http://localhost:3000/
+                    const response = await fetch("https://fresh-plate.onrender.com/askRecipe",{
+                        method:'POST',
+                        headers:{ 'Content-Type': 'application/json' },
+                        body:JSON.stringify(promptList)
+                    });
+                    if(response.ok){
+                        const data = await response.json();
+                        console.log("Data:- ",data);
+                        if(data.status ===200){
+                            //name the data
+                            const recipes = data.item;
+                            if(data.item.length>3){
+                                midSection.classList.remove("h-screen");
+                            }
+
+                            //create a div
+                            recipes.map((recipe)=>{
+                                const recipeDiv = document.createElement('div');
+                                recipeDiv.value = recipe.method;
+                                recipeDiv.classList.add("checkMethod","cursor-pointer","p-1","w-full","flex","flex-col","gap-1","bg-white","border","border-[#ddd]","rounded-2xl","items-center","justify-around");
+                                recipeDiv.innerHTML = `
+                                <img class="rounded-2xl h-30 w-full object-cover "src="${recipe.Pic}">
+                                <h1 class="text-sm text-center text-gray-800">${recipe.Name}</h1>
+                                <p class="text-[10px] text-gray-800">Category:- ${recipe.category}</p>`
+                        
+                                document.querySelector('.findRecipepagetext').appendChild(recipeDiv);
+                                
+                            })
+                            const allRecipe = document.querySelectorAll(".checkMethod");
+                            allRecipe.forEach((recipe)=>{
+                                recipe.addEventListener('click',()=>{
+
+                                    const existingModal = document.querySelector('.methodshow');
+                                    if (existingModal) existingModal.remove();//remove previous recipe
+
+
+                                    const MethodDiv = document.createElement('div');
+                                    MethodDiv.classList.add("methodshow","w-full","h-full","bg-[rgba(0,0,0,0.5)]","backdrop-blur-2xl","flex","items-center","justify-center","fixed","top-0","left-0")
+                                    MethodDiv.innerHTML = `
+                                    <div class="methodshow2 w-75 bg-[#ddd] rounded-2xl md:w-100  lg:w-120  p-3 text-center">
+                                        <h1 onclick="document.querySelector('.methodshow').style.display = 'none';"class="cut cursor-pointer"><b>👈</b></h1>
+                                        <h1>${recipe.value}</h1>
+                                    </div>`
+                                    midSection.appendChild(MethodDiv);
+                                })
+                            })
+
+                        }else{
+                            document.querySelector('.FoundSomething').textContent = data.message;
+                        }
+                        
+                    }
+                }catch(err){
+                    throw new Error(err);
+                }
+                
+            });
+        }
+        handler();
     }
     updateItems();
-
-    //checkbox handling and create array for prompt
-    let allCheckBox = document.querySelectorAll('#check');
-    let promptList = [];
     
-    allCheckBox.forEach(checkboxes=>{
-        checkboxes.addEventListener('change',()=>{
-            if(checkboxes.checked){
-                if(!promptList.includes(checkboxes.value)){
-                    promptList.push(checkboxes.value.toLowerCase());
-                }
-            }else{
-                const delInx = promptList.indexOf(checkboxes.value);
-                promptList.splice(delInx,1);
-            }
-        });
-        
-    });
-    
-    //make find recipe prompt and jump to find recipe section 
-    const findRecipeBtn = document.querySelector('.findRecipe');
-    findRecipeBtn.addEventListener('click',async()=>{
-        openRecipe();
-        //take response 
-        try{
-            console.log(promptList);
-            const response = await fetch("https://fresh-plate.onrender.com/askRecipe",{
-                method:'POST',
-                headers:{ 'Content-Type': 'application/json' },
-                body:JSON.stringify(promptList)
-            });
-            if(response.ok){
-                const data = await response.json();
-                console.log("Data:- ",data);
-                if(data.status ===200){
-                    //name the data
-                    const recipes = data.item;
-                    if(data.item.length>3){
-                        midSection.classList.remove("h-screen");
-                    }
-
-                    //create a div
-                    recipes.map((recipe)=>{
-                        const recipeDiv = document.createElement('div');
-                        recipeDiv.value = recipe.method;
-                        recipeDiv.classList.add("checkMethod","cursor-pointer","p-1","w-full","flex","flex-col","gap-1","bg-white","border","border-[#ddd]","rounded-2xl","items-center","justify-around");
-                        recipeDiv.innerHTML = `
-                        <img class="rounded-2xl h-30 w-full object-cover "src="${recipe.Pic}">
-                        <h1 class="text-sm text-center text-gray-800">${recipe.Name}</h1>
-                        <p class="text-[10px] text-gray-800">Category:- ${recipe.category}</p>`
-                
-                        document.querySelector('.findRecipepagetext').appendChild(recipeDiv);
-                        
-                    })
-                    const allRecipe = document.querySelectorAll(".checkMethod");
-                    allRecipe.forEach((recipe)=>{
-                        recipe.addEventListener('click',()=>{
-
-                            const existingModal = document.querySelector('.methodshow');
-                            if (existingModal) existingModal.remove();//remove previous recipe
-
-
-                            const MethodDiv = document.createElement('div');
-                            MethodDiv.classList.add("methodshow","w-full","h-full","bg-[rgba(0,0,0,0.5)]","backdrop-blur-2xl","flex","items-center","justify-center","fixed","top-0","left-0")
-                            MethodDiv.innerHTML = `
-                            <div class="methodshow2 w-75 bg-[#ddd] rounded-2xl md:w-100  lg:w-120  p-3 text-center">
-                                <h1 onclick="document.querySelector('.methodshow').style.display = 'none';"class="cut cursor-pointer"><b>👈</b></h1>
-                                <h1>${recipe.value}</h1>
-                            </div>`
-                            midSection.appendChild(MethodDiv);
-                        })
-                    })
-
-                }else{
-                    document.querySelector('.FoundSomething').textContent = data.message;
-                }
-                
-            }
-        }catch(err){
-            throw new Error(err);
-        }
-        
-    });
     
     
 });
