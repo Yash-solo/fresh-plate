@@ -87,7 +87,7 @@ frigeItems.addEventListener('click',()=>{
         //create
         const myfun = async()=>{
             try{
-                const response = await fetch("http://localhost:3000/fridgeItem",{
+                const response = await fetch("https://fresh-plate.onrender.com/fridgeItem",{
                     method:'POST',
                     headers:{ 'Content-Type': 'application/json' },
                     body:JSON.stringify(items)
