@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+  --color-brand: rgb(17,17,17); /* Blue color */
+}

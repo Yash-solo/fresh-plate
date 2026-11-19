@@ -1,5 +1,6 @@
 import {MealPlanner} from "./OtherPages/Mealplanner.js"
 import {getFrigeHTML} from "./OtherPages/Frigeitem.js"
+import { settingsHTML } from "./OtherPages/Settings.js";
 
 const burger = document.querySelector('#menubar');
 const cross = document.querySelector('#cutbar');
@@ -11,6 +12,7 @@ const findRecipeSec = document.querySelector('.findRecipes');
 const mealPlanner = document.querySelector('.mealPlan');
 const deshBoard = document.querySelector('.Dashboard');
 const footer = document.querySelector('.Footer');
+const Settings = document.querySelector('.Settings');
 
 burger.addEventListener('click',()=>{
     sidebar.classList.remove('left-0');
@@ -87,7 +89,8 @@ frigeItems.addEventListener('click',()=>{
         //create
         const myfun = async()=>{
             try{
-                const response = await fetch("https://fresh-plate.onrender.com/fridgeItem",{
+                //changed url = https://fresh-plate.onrender.com
+                const response = await fetch("http://localhost:3000/fridgeItem",{
                     method:'POST',
                     headers:{ 'Content-Type': 'application/json' },
                     body:JSON.stringify(items)
@@ -143,8 +146,7 @@ frigeItems.addEventListener('click',()=>{
                 //take response 
                 try{
                     console.log(promptList);
-                    //link :- http://localhost:3000/
-                    const response = await fetch("https://fresh-plate.onrender.com/askRecipe",{
+                    const response = await fetch("http://localhost:3000/askRecipe",{
                         method:'POST',
                         headers:{ 'Content-Type': 'application/json' },
                         body:JSON.stringify(promptList)
@@ -404,6 +406,19 @@ function giveDeshboard(){
     </div>
 `;
 }
+
+Settings.addEventListener('click',(e)=>{
+    footer.style.display = "none";
+    settingsHTML(midSection);
+    const darkModeBtn = document.querySelector('.darkModeBtn');
+    darkModeBtn.addEventListener('change',(e)=>{
+        if(e.target.checked){
+            alert("You have checked");
+        }else{
+            alert("You are unchacking the btn");
+        }
+    })
+})
 deshBoard.addEventListener('click',()=>{
     midSection.style.backgroundColor = "white";
     giveFooter();
